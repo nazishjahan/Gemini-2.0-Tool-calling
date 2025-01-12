@@ -196,9 +196,50 @@ llm = ChatGoogleGenerativeAI(model= "gemini-2.0-flash-exp",api_key = GOOGLE_API_
 
 agent = initialize_agent(tools, llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=False)
 
+
+# Styling for the sidebar and submit button
+st.markdown("""
+<style>
+    .stSidebar {
+        background-color: #f0f0f0;
+        padding: 1em;
+        border-radius: 10px;
+    }
+    .tool-item {
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
+        color: #333;
+    }
+    .stButton button {
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 0.5em 1em;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Add a sidebar menu
+with st.sidebar:
+    # Using markdown with custom CSS to make the header red
+    st.markdown("<h1 style='color: red;'>Available Tools</h1>", unsafe_allow_html=True)
+   
+    st.markdown("""
+    <div class="stSidebar">
+        <div class="tool-item">1. Calculator</div>
+        <div class="tool-item">2. Weather Information</div>
+        <div class="tool-item">3. Disk Usage</div>
+        <div class="tool-item">4. Stock Price Fetcher</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Main app interface
 st.title("Gemini Tool Calling")
-st.write("Welcome to my Agentic App")
+st.write("Welcome to Nazish's Agentic App!")
+
+# Input and processing
 user_input = st.text_input("Enter your prompt")
-if st.button("submit"):
+if st.button("Submit"):
     response = agent.invoke(user_input)
     st.write(response["output"])
