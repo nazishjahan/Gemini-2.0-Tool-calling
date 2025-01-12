@@ -418,4 +418,5 @@ zict @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_59sch
 zipp @ file:///Users/ec2-user/ci_py311/zipp_1678318061389/work
 zope.interface @ file:///Users/ec2-user/ci_py311/zope.interface_1678379536727/work
 zstandard @ file:///Users/ec2-user/ci_py311_2/zstandard_1679338593428/work
+streamlit
 python-dotenv
