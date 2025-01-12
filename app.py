@@ -251,4 +251,5 @@ st.write("Welcome to Nazish's Agentic App!")
 user_input = st.text_input("Enter your prompt")
 if st.button("Submit"):
     # Placeholder for processing, replace with actual logic
-    st.write("Button clicked. Input:", user_input)
+    response = agent.invoke({user_input})
+    st.write(response["output"])
