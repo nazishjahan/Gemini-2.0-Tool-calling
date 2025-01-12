@@ -198,35 +198,44 @@ agent = initialize_agent(tools, llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_R
 
 
 # Styling for the sidebar and submit button
+import streamlit as st
+
+# Custom styles for the sidebar and submit button
 st.markdown("""
 <style>
-    .stSidebar {
-        background-color: #f0f0f0;
+    .css-1d391kg {
+        background-color: #585858;  /* Deep gray color */
         padding: 1em;
         border-radius: 10px;
     }
     .tool-item {
         font-size: 1.1em;
         margin-bottom: 0.5em;
-        color: #333;
+        color: white;  /* White color for text */
     }
+    
+    /* Submit button styles */
     .stButton button {
-        background-color: green;
+        background-color: green;  /* Green color */
         color: white;
         border-radius: 5px;
         border: none;
         padding: 0.5em 1em;
+        transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
+    }
+    
+    /* Hover effect */
+    .stButton button:hover {
+        background-color: darkgreen;  /* Darker green on hover */
     }
 </style>
 """, unsafe_allow_html=True)
 
 # Add a sidebar menu
 with st.sidebar:
-    # Using markdown with custom CSS to make the header red
     st.markdown("<h1 style='color: red;'>Available Tools</h1>", unsafe_allow_html=True)
-   
     st.markdown("""
-    <div class="stSidebar">
+    <div class="css-1d391kg">
         <div class="tool-item">1. Calculator</div>
         <div class="tool-item">2. Weather Information</div>
         <div class="tool-item">3. Disk Usage</div>
@@ -241,5 +250,5 @@ st.write("Welcome to Nazish's Agentic App!")
 # Input and processing
 user_input = st.text_input("Enter your prompt")
 if st.button("Submit"):
-    response = agent.invoke(user_input)
-    st.write(response["output"])
+    # Placeholder for processing, replace with actual logic
+    st.write("Button clicked. Input:", user_input)
